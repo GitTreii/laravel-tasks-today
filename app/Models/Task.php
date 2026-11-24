@@ -11,10 +11,22 @@ class Task extends Model
     protected $fillable = [
         'title',
         'status',
-        'task_date'
+        'task_date',
+        'is_archived'
     ];
 
     protected $casts = [
-        'task_date' => 'date'
+        'task_date' => 'date',
+        'is_archived' => 'boolean'
     ];
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_archived', false);
+    }
+
+    public function scopeToday($query)
+    {
+        return $query->whereDate('task_date', today());
+    }
 }

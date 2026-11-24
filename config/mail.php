@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+'task_recipient' => env('TASK_NOTIFICATION_EMAIL', 'demo@example.com'),
     /*
     |--------------------------------------------------------------------------
     | Default Mailer
